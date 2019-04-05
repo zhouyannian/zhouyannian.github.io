@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhouyannian.com/"/>
-  <updated>2019-04-05T17:28:28.340Z</updated>
+  <updated>2019-04-05T18:08:30.044Z</updated>
   <id>https://zhouyannian.com/</id>
   
   <author>
@@ -21,16 +21,17 @@
     <link href="https://zhouyannian.com/2019/04/06/talk-about-the-undertandng-of-Java/"/>
     <id>https://zhouyannian.com/2019/04/06/talk-about-the-undertandng-of-Java/</id>
     <published>2019-04-05T16:56:15.000Z</published>
-    <updated>2019-04-05T17:28:28.340Z</updated>
+    <updated>2019-04-05T18:08:30.044Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>从接触 Java 开发到现在，你觉得你对 Java 最直观的印象是什么？是它宣传的 “Write once, run anywhere”，还是目前看已经有些过于形式主义的语法？你对于 Java 平台到底了解到什么程度？<br>Java 本身是一种面向对象的语言，最显著的特性有两个方面，一是所谓的“<strong>一次编译，到处运行</strong>”（Write once, run anywhere），能够非常容易地获得跨平台能力；另外就是<strong>垃圾收集</strong>（GC, Garbage Collection），Java 通过垃圾收集器（Garbage Collector）回收分配内存，大部分情况下，程序员不需要自己操心内存的分配和回收。</li><li>我们日常会接触到 JRE（Java Runtime Environment）或者 JDK（Java Development Kit）。 JRE，也就是 Java 运行环境，包含了 JVM 和 Java 类库，以及一些模块等。而 JDK 可以看作是 JRE 的一个超集，提供了更多工具，比如编译器、各种诊断工具等。</li><li>“一次编译、到处运行”说的是 Java 语言跨平台的特性，Java 的跨平台特性与 Java 虚拟机的存在密不可分，可在不同的环境中运行。比如说 Windows 平台和 Linux 平台都有相应的 JDK ，安装好 JDK后也就有了 Java 语言的运行环境。其实 Java 语言本身与其他的编程语言没有特别大的差异，并不是说 Java 语言可以跨平台，而是在不同的平台都有可以让 Java 语言运行的环境而已，所以才有了 Java 一次编译，到处运行这样的效果。</li><li>严格的讲，跨平台的语言不止 Java 一种，但 Java 是较为成熟的一种。“一次编译，到处运行”这种效果跟编译器有关。编程语言的处理需要编译器和解释器。Java 虚拟机和 DOS 类似，相当于一个供程序运行的平台。</li><li>程序从源代码到运行的三个阶段：编码——编译——运行——调试。Java 在编译阶段则体现了跨平台的特点。编译过程大概是这样的：首先是将 Java 源代码转化成 .CLASS 文件字节码，这是第一次编译。.class 文件就是可以到处运行的文件。然后Java字节码会被转化为目标机器代码，这是是由 JVM 来执行的，即 Java 的第二次编译。</li><li>“到处运行”的关键和前提就是 JVM 。因为在第二次编译中 JVM 起着关键作用。在可以运行 Java 虚拟机的地方都内含着一个JVM操作系统。从而使 JAVA 提供了各种不同平台上的虚拟机制，因此实现了“到处运行”的效果。需要强调的一点是，java 并不是编译机制，而是解释机制。Java 字节码的设计充分考虑了 JIT 这一即时编译方式，可以将字节码直接转化成高性能的本地机器码，这同样是虚拟机的一个构成部分。</li><li>下面是一位大牛总结的蓝图，很全面，可以参考一下：<br><img src="/images/illustration/java.png" alt></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>从接触 Java 开发到现在，你觉得你对 Java 最直观的印象是什么？是它宣传的 “Write once, run anywhere”，还是目前看已经有些过于形式主义的语法？</p><ul><li><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2>Java 本身是一种面向对象的语言，最显著的特性有两个方面，一是所谓的“<strong>一次编译，到处运行</strong>”（Write once, run anywhere），能够非常容易地获得跨平台能力；另外就是<strong>垃圾收集</strong>（GC, Garbage Collection），Java 通过垃圾收集器（Garbage Collector）回收分配内存，大部分情况下，程序员不需要自己操心内存的分配和回收。</li><li><h2 id="JRE-amp-JDK"><a href="#JRE-amp-JDK" class="headerlink" title="JRE&amp;JDK"></a>JRE&amp;JDK</h2>我们日常会接触到 JRE（Java Runtime Environment）或者 JDK（Java Development Kit）。 JRE，也就是 Java 运行环境，包含了 JVM 和 Java 类库，以及一些模块等。而 JDK 可以看作是 JRE 的一个超集，提供了更多工具，比如编译器、各种诊断工具等。</li><li><h2 id="Java-是解释执行？"><a href="#Java-是解释执行？" class="headerlink" title="Java 是解释执行？"></a>Java 是解释执行？</h2>对于“Java 是解释执行”这句话，这个说法不太准确。我们开发的 Java 的源代码，首先通过 Javac 编译成为字节码（bytecode），然后，在运行时，通过 Java 虚拟机（JVM）内嵌的解释器将字节码转换成为最终的机器码。但是常见的 JVM，比如我们大多数情况使用的 Oracle JDK 提供的 Hotspot JVM，都提供了 JIT（Just-In-Time）编译器，也就是通常所说的动态编译器，JIT 能够在运行时将热点代码编译成机器码，这种情况下部分热点代码就属于</li><li><h2 id="一次编译、到处运行"><a href="#一次编译、到处运行" class="headerlink" title="一次编译、到处运行"></a>一次编译、到处运行</h2>“<strong>一次编译、到处运行</strong>”说的是 Java 语言跨平台的特性，Java 的跨平台特性与 Java 虚拟机的存在密不可分，可在不同的环境中运行。比如说 Windows 平台和 Linux 平台都有相应的 JDK ，安装好 JDK后也就有了 Java 语言的运行环境。其实 Java 语言本身与其他的编程语言没有特别大的差异，并不是说 Java 语言可以跨平台，而是在不同的平台都有可以让 Java 语言运行的环境而已，所以才有了 Java 一次编译，到处运行这样的效果。<br>严格的讲，跨平台的语言不止 Java 一种，但 Java 是较为成熟的一种。“<strong>一次编译，到处运行</strong>”这种效果跟编译器有关。编程语言的处理需要编译器和解释器。Java 虚拟机和 DOS 类似，相当于一个供程序运行的平台。<br>程序从源代码到运行的三个阶段：编码——编译——运行——调试。Java 在编译阶段则体现了跨平台的特点。编译过程大概是这样的：首先是将 Java 源代码转化成 .CLASS 文件字节码，这是第一次编译。.class 文件就是可以到处运行的文件。然后Java字节码会被转化为目标机器代码，这是是由 JVM 来执行的，即 Java 的第二次编译。</li><li><h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2>“<strong>到处运行</strong>”的关键和前提就是 JVM 。因为在第二次编译中 JVM 起着关键作用。在可以运行 Java 虚拟机的地方都内含着一个JVM操作系统。从而使 JAVA 提供了各种不同平台上的虚拟机制，因此实现了“到处运行”的效果。需要强调的一点是，java 并不是编译机制，而是解释机制。Java 字节码的设计充分考虑了 JIT 这一即时编译方式，可以将字节码直接转化成高性能的本地机器码，这同样是虚拟机的一个构成部分。</li><li><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>下面是一位大牛总结的蓝图，很全面，可以参考一下：<br><img src="/images/illustration/java.png" alt></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;ul&gt;
-&lt;li&gt;从接触 Java 开发到现在，你觉得你对 Java 最直观的印象是什么？是它宣传的 “Write once, run anywhere”，还是目前看已经有些过于形式主义的语法？你对于 Java 平台到底了解到什么程度？&lt;br&gt;Java 本身是一种面向对象的语言，
+        &lt;p&gt;从接触 Java 开发到现在，你觉得你对 Java 最直观的印象是什么？是它宣传的 “Write once, run anywhere”，还是目前看已经有些过于形式主义的语法？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h2 id=&quot;特性&quot;&gt;&lt;a href=&quot;#特性&quot; class=&quot;he
       
     
     </summary>
