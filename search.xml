@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Docker安装MySQL]]></title>
+    <url>%2F2019%2F04%2F09%2Fdocker-install-mysql%2F</url>
+    <content type="text"><![CDATA[1. 前言mysql都已经更新到8了，听说速度比5.X快了不少，正好最近要做一个小项目，就赶紧装个最新的版本来爽一下。 2. 安装2.1 docker 中下载 mysql1docker pull mysql #如果不指定版本，默认是latest 2.2 启动1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=admin -d mysql #密码不要抄我的！！！ 2.3 进入容器docker exec -it mysql bash 2.4 登录mysqlmysql -u root -p ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin'; 2.5 添加远程登录用户CREATE USER 'zhouyn'@'%' IDENTIFIED WITH mysql_native_password BY 'admin'; GRANT ALL PRIVILEGES ON *.* TO 'zhouyn'@'%'; 3. 安装过程中出现的问题暂时没出现啥问题，一次安装成功，惊不惊喜？意不意外？先待定，后面出现啥问题再补充。]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Docker]]></title>
     <url>%2F2019%2F04%2F08%2Fdocker%2F</url>
     <content type="text"><![CDATA[1.前言Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。出来面试了一圈才知道，大家现在都在整springBoot+springCloud这一套了，面试完也拿了几个offer，但自己心仪的几个公司都被拒了，每次面试完都会回去反思一下，入职某信的这半年多时间，在技术上几乎没有任何的沉淀，学到的一些新东西，也是公司自己内部的，外面的公司根本不知道，所以还是庆幸自己早点跳出来了，不然可能时间越长就越没法跳出来了，从我那些同事那就能看的出来，所以也劝大家选行业的时候一定要慎重，对你以后的发展很重要，电信行业已经进入我的黑名单，以后再也不想入这一行了。 2.关于Docker刚才有感而发说了些废话，现在开始说正事吧。关于什么是Docker以及和虚拟机的区别，网上一搜一大堆，我就不再当搬运工了，只要是做这一行的，一看就能明白他俩的区别，Docker能火起来是个必然的趋势，这一点我深有感触，以前配一套环境，要折腾很久，现在分分钟搞定，简直爽歪歪！ 3.Docker的安装我用的是macOS和Linux的系统，安装过程很简单，网上的教程也很多，各种OS的都有，大家照着安装就可以了，本文只是做个铺垫，后面会记录一下其他和Docker相关的东西。]]></content>
       <categories>
-        <category>docker</category>
+        <category>Docker</category>
       </categories>
       <tags>
-        <tag>docker</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>

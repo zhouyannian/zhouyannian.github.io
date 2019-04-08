@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhouyannian.com/2019/04/09/docker-install-mysql/</loc>
+    
+    <lastmod>2019-04-08T16:33:31.527Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhouyannian.com/2019/04/08/docker/</loc>
     
-    <lastmod>2019-04-08T16:00:23.262Z</lastmod>
+    <lastmod>2019-04-08T16:33:25.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhouyannian.com/2019/03/31/hello-world/</loc>
+    
+    <lastmod>2019-04-08T16:32:42.650Z</lastmod>
     
   </url>
   
@@ -40,13 +54,6 @@
     <loc>https://zhouyannian.com/talk/index.html</loc>
     
     <lastmod>2019-03-31T17:26:49.372Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhouyannian.com/2019/03/31/hello-world/</loc>
-    
-    <lastmod>2019-03-30T17:07:57.333Z</lastmod>
     
   </url>
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhouyannian.com/"/>
-  <updated>2019-04-08T16:00:23.262Z</updated>
+  <updated>2019-04-08T16:33:31.527Z</updated>
   <id>https://zhouyannian.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Docker安装MySQL</title>
+    <link href="https://zhouyannian.com/2019/04/09/docker-install-mysql/"/>
+    <id>https://zhouyannian.com/2019/04/09/docker-install-mysql/</id>
+    <published>2019-04-08T16:03:06.000Z</published>
+    <updated>2019-04-08T16:33:31.527Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>mysql都已经更新到8了，听说速度比5.X快了不少，正好最近要做一个小项目，就赶紧装个最新的版本来爽一下。</p><h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><h3 id="2-1-docker-中下载-mysql"><a href="#2-1-docker-中下载-mysql" class="headerlink" title="2.1 docker 中下载 mysql"></a>2.1 docker 中下载 mysql</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql    <span class="comment">#如果不指定版本，默认是latest</span></span><br></pre></td></tr></table></figure><h3 id="2-2-启动"><a href="#2-2-启动" class="headerlink" title="2.2 启动"></a>2.2 启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=admin -d mysql    <span class="comment">#密码不要抄我的！！！</span></span><br></pre></td></tr></table></figure><h3 id="2-3-进入容器"><a href="#2-3-进入容器" class="headerlink" title="2.3 进入容器"></a>2.3 进入容器</h3><pre><code class="bash">docker <span class="built_in">exec</span> -it mysql bash </code></pre><h3 id="2-4-登录mysql"><a href="#2-4-登录mysql" class="headerlink" title="2.4 登录mysql"></a>2.4 登录mysql</h3><pre><code class="bash">mysql -u root -p ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'admin'</span>; </code></pre><h3 id="2-5-添加远程登录用户"><a href="#2-5-添加远程登录用户" class="headerlink" title="2.5 添加远程登录用户"></a>2.5 添加远程登录用户</h3><pre><code class="bash">CREATE USER <span class="string">'zhouyn'</span>@<span class="string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="string">'admin'</span>; GRANT ALL PRIVILEGES ON *.* TO <span class="string">'zhouyn'</span>@<span class="string">'%'</span>; </code></pre><h2 id="3-安装过程中出现的问题"><a href="#3-安装过程中出现的问题" class="headerlink" title="3. 安装过程中出现的问题"></a>3. 安装过程中出现的问题</h2><p>暂时没出现啥问题，一次安装成功，惊不惊喜？意不意外？<br>先待定，后面出现啥问题再补充。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h2&gt;&lt;p&gt;mysql都已经更新到8了，听说速度比5.X快了不少，正好最近要做一个小项目，就赶紧装个最新的版本来爽一下。&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+      <category term="Docker" scheme="https://zhouyannian.com/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="https://zhouyannian.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Docker</title>
     <link href="https://zhouyannian.com/2019/04/08/docker/"/>
     <id>https://zhouyannian.com/2019/04/08/docker/</id>
     <published>2019-04-08T15:26:12.000Z</published>
-    <updated>2019-04-08T16:00:23.262Z</updated>
+    <updated>2019-04-08T16:33:25.144Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a><strong>1.前言</strong></h2><p>Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。<br>出来面试了一圈才知道，大家现在都在整springBoot+springCloud这一套了，面试完也拿了几个offer，但自己心仪的几个公司都被拒了，每次面试完都会回去反思一下，入职某信的这半年多时间，在技术上几乎没有任何的沉淀，学到的一些新东西，也是公司自己内部的，外面的公司根本不知道，所以还是庆幸自己早点跳出来了，不然可能时间越长就越没法跳出来了，从我那些同事那就能看的出来，所以也劝大家选行业的时候一定要慎重，对你以后的发展很重要，电信行业已经进入我的黑名单，以后再也不想入这一行了。</p><h2 id="2-关于Docker"><a href="#2-关于Docker" class="headerlink" title="2.关于Docker"></a><strong>2.关于Docker</strong></h2><p>刚才有感而发说了些废话，现在开始说正事吧。关于什么是Docker以及和虚拟机的区别，网上一搜一大堆，我就不再当搬运工了，只要是做这一行的，一看就能明白他俩的区别，Docker能火起来是个必然的趋势，这一点我深有感触，以前配一套环境，要折腾很久，现在分分钟搞定，简直爽歪歪！</p><h2 id="3-Docker的安装"><a href="#3-Docker的安装" class="headerlink" title="3.Docker的安装"></a><strong>3.Docker的安装</strong></h2><p>我用的是macOS和Linux的系统，安装过程很简单，网上的教程也很多，各种OS的都有，大家照着安装就可以了，本文只是做个铺垫，后面会记录一下其他和Docker相关的东西。</p>]]></content>
     
@@ -34,10 +60,10 @@
     
     </summary>
     
-      <category term="docker" scheme="https://zhouyannian.com/categories/docker/"/>
+      <category term="Docker" scheme="https://zhouyannian.com/categories/Docker/"/>
     
     
-      <category term="docker" scheme="https://zhouyannian.com/tags/docker/"/>
+      <category term="Docker" scheme="https://zhouyannian.com/tags/Docker/"/>
     
   </entry>
   
@@ -73,7 +99,7 @@
     <link href="https://zhouyannian.com/2019/03/31/hello-world/"/>
     <id>https://zhouyannian.com/2019/03/31/hello-world/</id>
     <published>2019-03-30T17:07:57.333Z</published>
-    <updated>2019-03-30T17:07:57.333Z</updated>
+    <updated>2019-04-08T16:32:42.650Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
