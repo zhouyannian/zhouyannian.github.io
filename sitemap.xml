@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhouyannian.com/2019/04/10/redis-data-persistence/</loc>
+    
+    <lastmod>2019-04-10T14:23:13.616Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhouyannian.com/2019/04/09/docker-install-mysql/</loc>
     
-    <lastmod>2019-04-08T16:33:31.527Z</lastmod>
+    <lastmod>2019-04-08T16:35:01.122Z</lastmod>
     
   </url>
   
