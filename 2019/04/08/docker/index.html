@@ -81,18 +81,20 @@
 
 
 
-<meta name="description" content="1.前言Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。出来面试了一圈才知道，大家现在都在整springB">
+<meta name="description" content="1.前言Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。出来面试了一圈才知道，大家现在都在整spring">
 <meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="https://zhouyannian.com/2019/04/08/docker/index.html">
 <meta property="og:site_name" content="周延年的博客">
-<meta property="og:description" content="1.前言Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。出来面试了一圈才知道，大家现在都在整springB">
+<meta property="og:description" content="1.前言Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。出来面试了一圈才知道，大家现在都在整spring">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-08T16:33:25.144Z">
+<meta property="og:image" content="https://zhouyannian.com/images/2019-04-08/start.jpg">
+<meta property="og:updated_time" content="2019-04-23T14:07:35.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
-<meta name="twitter:description" content="1.前言Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。出来面试了一圈才知道，大家现在都在整springB">
+<meta name="twitter:description" content="1.前言Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。出来面试了一圈才知道，大家现在都在整spring">
+<meta name="twitter:image" content="https://zhouyannian.com/images/2019-04-08/start.jpg">
 
 
 
@@ -102,7 +104,7 @@
     root: '/',
     scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -450,7 +452,8 @@
       
 
       
-        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a><strong>1.前言</strong></h2><p>Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。<br>出来面试了一圈才知道，大家现在都在整springBoot+springCloud这一套了，面试完也拿了几个offer，但自己心仪的几个公司都被拒了，每次面试完都会回去反思一下，入职某信的这半年多时间，在技术上几乎没有任何的沉淀，学到的一些新东西，也是公司自己内部的，外面的公司根本不知道，所以还是庆幸自己早点跳出来了，不然可能时间越长就越没法跳出来了，从我那些同事那就能看的出来，所以也劝大家选行业的时候一定要慎重，对你以后的发展很重要，电信行业已经进入我的黑名单，以后再也不想入这一行了。</p>
+        <p><img src="/images/2019-04-08/start.jpg" alt></p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a><strong>1.前言</strong></h2><p>Docker火了已经有一段时间了，但是因为所在公司的原因，一直没有机会接触到这些新技术，公司主要的业务是电信行业，技术栈也是自己搞的一套，先不说好不好吧，反正我觉得是什么都学不到，当然，也有我自己的问题，虽然公司用的技术比较老，但是只要自己愿意学的话，还是可以学到东西的，但是对着一堆陈年老代码，我实在是没有什么欲望，所以，年后就果断离职了。<br>出来面试了一圈才知道，大家现在都在整springBoot+springCloud这一套了，面试完也拿了几个offer，但自己心仪的几个公司都被拒了，每次面试完都会回去反思一下，入职某信的这半年多时间，在技术上几乎没有任何的沉淀，学到的一些新东西，也是公司自己内部的，外面的公司根本不知道，所以还是庆幸自己早点跳出来了，不然可能时间越长就越没法跳出来了，从我那些同事那就能看的出来，所以也劝大家选行业的时候一定要慎重，对你以后的发展很重要，电信行业已经进入我的黑名单，以后再也不想入这一行了。</p>
 <h2 id="2-关于Docker"><a href="#2-关于Docker" class="headerlink" title="2.关于Docker"></a><strong>2.关于Docker</strong></h2><p>刚才有感而发说了些废话，现在开始说正事吧。关于什么是Docker以及和虚拟机的区别，网上一搜一大堆，我就不再当搬运工了，只要是做这一行的，一看就能明白他俩的区别，Docker能火起来是个必然的趋势，这一点我深有感触，以前配一套环境，要折腾很久，现在分分钟搞定，简直爽歪歪！</p>
 <h2 id="3-Docker的安装"><a href="#3-Docker的安装" class="headerlink" title="3.Docker的安装"></a><strong>3.Docker的安装</strong></h2><p>我用的是macOS和Linux的系统，安装过程很简单，网上的教程也很多，各种OS的都有，大家照着安装就可以了，本文只是做个铺垫，后面会记录一下其他和Docker相关的东西。</p>
 
