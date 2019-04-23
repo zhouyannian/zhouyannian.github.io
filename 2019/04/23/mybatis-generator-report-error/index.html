@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server. 后来通过排查，发现原因是，">
+<meta name="description" content="前言今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server. 后来通过排查，发现原因">
 <meta name="keywords" content="MyBatis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mybatis-generator生成代码时报错：Could not create connection to database server.">
 <meta property="og:url" content="https://zhouyannian.com/2019/04/23/mybatis-generator-report-error/index.html">
 <meta property="og:site_name" content="周延年的博客">
-<meta property="og:description" content="今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server. 后来通过排查，发现原因是，">
+<meta property="og:description" content="前言今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server. 后来通过排查，发现原因">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zhouyannian.com/images/2019-04-23/start.jpg">
 <meta property="og:image" content="https://zhouyannian.com/images/2019-04-23/xml.png">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="https://zhouyannian.com/images/2019-04-23/pom.png">
 <meta property="og:image" content="https://zhouyannian.com/images/2019-04-23/new_xml.png">
 <meta property="og:image" content="https://zhouyannian.com/images/2019-04-23/success.png">
-<meta property="og:updated_time" content="2019-04-23T14:09:32.988Z">
+<meta property="og:updated_time" content="2019-04-23T15:03:46.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis-generator生成代码时报错：Could not create connection to database server.">
-<meta name="twitter:description" content="今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server. 后来通过排查，发现原因是，">
+<meta name="twitter:description" content="前言今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server. 后来通过排查，发现原因">
 <meta name="twitter:image" content="https://zhouyannian.com/images/2019-04-23/start.jpg">
 
 
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  248 字
+                  250 字
                 </span>
               
 
@@ -457,7 +457,8 @@
       
 
       
-        <p><img src="/images/2019-04-23/start.jpg" alt><br>今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:<br><img src="/images/2019-04-23/xml.png" alt><br>运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server.<br><img src="/images/2019-04-23/error.png" alt></p>
+        <p><img src="/images/2019-04-23/start.jpg" alt></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:<br><img src="/images/2019-04-23/xml.png" alt><br>运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server.<br><img src="/images/2019-04-23/error.png" alt></p>
 <p>后来通过排查，发现原因是，MySQL8.0之后的版本需要更换驱动为<strong>“com.mysql.cj.jdbc.Driver”</strong>，之前的<strong>“com.mysql.jdbc.Driver”</strong>已经不能在MySQL 8.0之后的版本使用了，官方文档链接：<a href="https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-api-changes.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-api-changes.html</a></p>
 <p>原文如下：<br><strong><em>The name of the class that implements java.sql.Driver in MySQL Connector/J has changed from com.mysql.jdbc.Driver to com.mysql.cj.jdbc.Driver. The old class name has been deprecated.</em></strong><br>所以，修改一下两个地方就Ok了：</p>
 <h3 id="1-更新pom文件中mysql-connector-java的版本"><a href="#1-更新pom文件中mysql-connector-java的版本" class="headerlink" title="1.更新pom文件中mysql-connector-java的版本"></a>1.更新pom文件中mysql-connector-java的版本</h3><p><img src="/images/2019-04-23/pom.png" alt></p>
@@ -734,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-更新pom文件中mysql-connector-java的版本"><span class="nav-number">1.</span> <span class="nav-text">1.更新pom文件中mysql-connector-java的版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-更新mybatis-generator配置文件generatorConfig-xml中的驱动："><span class="nav-number">2.</span> <span class="nav-text">2.更新mybatis-generator配置文件generatorConfig.xml中的驱动：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-更新pom文件中mysql-connector-java的版本"><span class="nav-number">2.</span> <span class="nav-text">1.更新pom文件中mysql-connector-java的版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-更新mybatis-generator配置文件generatorConfig-xml中的驱动："><span class="nav-number">3.</span> <span class="nav-text">2.更新mybatis-generator配置文件generatorConfig.xml中的驱动：</span></a></li></ol></div>
             
 
           </div>
