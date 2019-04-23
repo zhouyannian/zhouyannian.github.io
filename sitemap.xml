@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhouyannian.com/2019/04/23/mybatis-generator-report-error/</loc>
+    
+    <lastmod>2019-04-23T13:47:48.708Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhouyannian.com/2019/04/10/redis-data-persistence/</loc>
     
     <lastmod>2019-04-10T14:42:18.748Z</lastmod>

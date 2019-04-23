@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhouyannian.com/"/>
-  <updated>2019-04-10T14:42:18.748Z</updated>
+  <updated>2019-04-23T13:47:48.708Z</updated>
   <id>https://zhouyannian.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mybatis-generator生成代码时报错：Could not create connection to database server.</title>
+    <link href="https://zhouyannian.com/2019/04/23/mybatis-generator-report-error/"/>
+    <id>https://zhouyannian.com/2019/04/23/mybatis-generator-report-error/</id>
+    <published>2019-04-23T13:05:07.000Z</published>
+    <updated>2019-04-23T13:47:48.708Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="images/2019-04-23/start.jpg" alt><br>今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:<br><img src="images/2019-04-23/xml.jpg" alt><br>运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server.<br><img src="images/2019-04-23/error.png" alt></p><p>后来通过排查，发现原因是，MySQL8.0之后的版本需要更换驱动为<strong>“com.mysql.cj.jdbc.Driver”</strong>，之前的<strong>“com.mysql.jdbc.Driver”</strong>已经不能在MySQL 8.0之后的版本使用了，官方文档链接：<a href="https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-api-changes.html" target="_blank" rel="noopener"></a><br>原文如下：</p><h3 id="The-name-of-the-class-that-implements-java-sql-Driver-in-MySQL-Connector-J-has-changed-from-com-mysql-jdbc-Driver-to-com-mysql-cj-jdbc-Driver-The-old-class-name-has-been-deprecated"><a href="#The-name-of-the-class-that-implements-java-sql-Driver-in-MySQL-Connector-J-has-changed-from-com-mysql-jdbc-Driver-to-com-mysql-cj-jdbc-Driver-The-old-class-name-has-been-deprecated" class="headerlink" title="*The name of the class that implements java.sql.Driver in MySQL Connector/J has changed from com.mysql.jdbc.Driver to com.mysql.cj.jdbc.Driver. The old class name has been deprecated."></a>*The name of the class that implements java.sql.Driver in MySQL Connector/J has changed from com.mysql.jdbc.Driver to com.mysql.cj.jdbc.Driver. The old class name has been deprecated.</h3><p>*<br>所以，修改一下两个地方就Ok了：</p><h3 id="1-更新pom文件中mysql-connector-java的版本"><a href="#1-更新pom文件中mysql-connector-java的版本" class="headerlink" title="1.更新pom文件中mysql-connector-java的版本"></a>1.更新pom文件中mysql-connector-java的版本</h3><p><img src="mages/2019-04-23/pom.png" alt></p><h3 id="2-更新mybatis-generator配置文件generatorConfig-xml中的驱动："><a href="#2-更新mybatis-generator配置文件generatorConfig-xml中的驱动：" class="headerlink" title="2.更新mybatis-generator配置文件generatorConfig.xml中的驱动："></a>2.更新mybatis-generator配置文件generatorConfig.xml中的驱动：</h3><p><img src="mages/2019-04-23/new_xml.png" alt></p><p>更新之后，再次运行mybatis-generator-maven-plugin，成功生成了dao层接口和mapper文件：<br><img src="mages/2019-04-23/success.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;images/2019-04-23/start.jpg&quot; alt&gt;&lt;br&gt;今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.
+      
+    
+    </summary>
+    
+      <category term="MyBatis" scheme="https://zhouyannian.com/categories/MyBatis/"/>
+    
+    
+      <category term="MyBatis" scheme="https://zhouyannian.com/tags/MyBatis/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis持久化的方式</title>
