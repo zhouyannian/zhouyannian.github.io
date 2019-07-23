@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[谈一谈Java的“一次编译、到处运行”]]></title>
+    <url>%2F2019%2F07%2F23%2Fwrite-once-run-anywhere%2F</url>
+    <content type="text"><![CDATA[“一次编译、到处运行”说的是Java语言跨平台的特性，Java的跨平台特性与Java虚拟机的存在密不可分，可在不同的环境中运行。比如说Windows平台和Linux平台都有相应的JDK，安装好JDK后也就有了Java语言的运行环境。其实Java语言本身与其他的编程语言没有特别大的差异，并不是说Java语言可以跨平台，而是在不同的平台都有可以让Java语言运行的环境而已，所以才有了Java一次编译，到处运行这样的效果。 严格的讲，跨平台的语言不止Java一种，但Java是较为成熟的一种。“一次编译，到处运行”这种效果跟编译器有关。编程语言的处理需要编译器和解释器。Java虚拟机和DOS类似，相当于一个供程序运行的平台。 程序从源代码到运行的三个阶段：编码——编译——运行——调试。Java在编译阶段则体现了跨平台的特点。编译过程大概是这样的：首先是将Java源代码转化成.CLASS文件字节码，这是第一次编译。.class文件就是可以到处运行的文件。然后Java字节码会被转化为目标机器代码，这是是由JVM来执行的，即Java的第二次编译。 “到处运行”的关键和前提就是JVM。因为在第二次编译中JVM起着关键作用。在可以运行Java虚拟机的地方都内含着一个JVM操作系统。从而使JAVA提供了各种不同平台上的虚拟机制，因此实现了“到处运行”的效果。需要强调的一点是，java并不是编译机制，而是解释机制。Java字节码的设计充分考虑了JIT这一即时编译方式，可以将字节码直接转化成高性能的本地机器码，这同样是虚拟机的一个构成部分。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mybatis-generator生成代码时报错：Could not create connection to database server.]]></title>
     <url>%2F2019%2F04%2F23%2Fmybatis-generator-report-error%2F</url>
     <content type="text"><![CDATA[前言今天在写一个小项目的时候，需要用到mybatis-generator来帮我自动生成一些代码，数据库安装的是当时最新的MySQL 8.0.15版本,generatorConfig.xml配置如下:运行mybatis-generator的maven plugin的时候，一直报错：Could not create connection to database server. 后来通过排查，发现原因是，MySQL8.0之后的版本需要更换驱动为“com.mysql.cj.jdbc.Driver”，之前的“com.mysql.jdbc.Driver”已经不能在MySQL 8.0之后的版本使用了，官方文档链接：https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-api-changes.html 原文如下：The name of the class that implements java.sql.Driver in MySQL Connector/J has changed from com.mysql.jdbc.Driver to com.mysql.cj.jdbc.Driver. The old class name has been deprecated.所以，修改以下两个地方就Ok了： 1.更新pom文件中mysql-connector-java的版本 2.更新mybatis-generator配置文件generatorConfig.xml中的驱动： 更新之后，再次运行mybatis-generator-maven-plugin，成功生成了dao层接口和mapper文件：]]></content>

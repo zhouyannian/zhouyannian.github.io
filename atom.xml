@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhouyannian.com/"/>
-  <updated>2019-04-23T15:06:35.566Z</updated>
+  <updated>2019-07-23T15:43:14.334Z</updated>
   <id>https://zhouyannian.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>谈一谈Java的“一次编译、到处运行”</title>
+    <link href="https://zhouyannian.com/2019/07/23/write-once-run-anywhere/"/>
+    <id>https://zhouyannian.com/2019/07/23/write-once-run-anywhere/</id>
+    <published>2019-07-23T15:39:07.000Z</published>
+    <updated>2019-07-23T15:43:14.334Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/2019-07-23/start.jpg" alt><br>    <strong>“一次编译、到处运行”</strong>说的是Java语言跨平台的特性，Java的跨平台特性与Java虚拟机的存在密不可分，可在不同的环境中运行。比如说Windows平台和Linux平台都有相应的JDK，安装好JDK后也就有了Java语言的运行环境。其实Java语言本身与其他的编程语言没有特别大的差异，并不是说Java语言可以跨平台，而是在不同的平台都有可以让Java语言运行的环境而已，所以才有了Java一次编译，到处运行这样的效果。<br>    严格的讲，跨平台的语言不止Java一种，但Java是较为成熟的一种。<strong>“一次编译，到处运行”</strong>这种效果跟编译器有关。编程语言的处理需要编译器和解释器。Java虚拟机和DOS类似，相当于一个供程序运行的平台。<br>    程序从源代码到运行的三个阶段：<strong>编码——编译——运行——调试</strong>。Java在编译阶段则体现了跨平台的特点。编译过程大概是这样的：首先是将Java源代码转化成.CLASS文件字节码，这是第一次编译。.class文件就是可以到处运行的文件。然后Java字节码会被转化为目标机器代码，这是是由JVM来执行的，即Java的第二次编译。<br>    <strong>“到处运行”</strong>的关键和前提就是JVM。因为在第二次编译中JVM起着关键作用。在可以运行Java虚拟机的地方都内含着一个JVM操作系统。从而使JAVA提供了各种不同平台上的虚拟机制，因此实现了“到处运行”的效果。需要强调的一点是，java并不是编译机制，而是解释机制。Java字节码的设计充分考虑了JIT这一即时编译方式，可以将字节码直接转化成高性能的本地机器码，这同样是虚拟机的一个构成部分。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/images/2019-07-23/start.jpg&quot; alt&gt;&lt;br&gt;    &lt;strong&gt;“一次编译、到处运行”&lt;/strong&gt;说的是Java语言跨平台的特性，Java的跨平台特性与Java虚拟机的存在密不可分，可在不同的环境中运行。比如说W
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://zhouyannian.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://zhouyannian.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>mybatis-generator生成代码时报错：Could not create connection to database server.</title>
