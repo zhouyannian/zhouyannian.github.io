@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhouyannian.com/"/>
-  <updated>2019-07-24T14:58:02.374Z</updated>
+  <updated>2020-02-28T14:52:18.977Z</updated>
   <id>https://zhouyannian.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>如何用较少的代码实现一个死锁？</title>
+    <link href="https://zhouyannian.com/2020/02/28/deadLock/"/>
+    <id>https://zhouyannian.com/2020/02/28/deadLock/</id>
+    <published>2020-02-28T14:39:07.000Z</published>
+    <updated>2020-02-28T14:52:18.977Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/2020-02-28/start.jpg" alt></p><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>死锁是面试中经常会被问到的一个问题，对于什么是死锁，大家肯定早已经烂熟于心了，但是如果面试官让你现场写一段死锁的代码，估计很多人就有点慌了。<br>毕竟记住了概念是一回事，能自己写出来又是另一回事。<br>前几天在看一个JVM视频的时候，发现一个例子写的很好，理解起来也很简单，给大家分享一下：<br><img src="/images/2020-02-28/code.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/images/2020-02-28/start.jpg&quot; alt&gt;&lt;/p&gt;
+&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;死锁是面试中经常会被问到的一个问题，
+      
+    
+    </summary>
+    
+      <category term="JVM" scheme="https://zhouyannian.com/categories/JVM/"/>
+    
+    
+      <category term="JVM" scheme="https://zhouyannian.com/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Exception和Error有什么区别？</title>
     <link href="https://zhouyannian.com/2019/07/24/exception-and-error/"/>
     <id>https://zhouyannian.com/2019/07/24/exception-and-error/</id>
     <published>2019-07-24T14:46:07.000Z</published>
-    <updated>2019-07-24T14:58:02.374Z</updated>
+    <updated>2020-02-28T14:38:13.617Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/2019-07-24-start.jpg" alt></p><ul><li><p>Exception 和 Error 都是继承了 Throwable 类，在 Java 中只有 Throwable 类型的实例才可以被抛出（throw）或者捕获（catch），它是异常处理机制的基本组成类型。</p></li><li><p>Exception 和 Error 体现了 Java 平台设计者对不同异常情况的分类。Exception 是程序正常运行中，可以预料的意外情况，可能并且应该被捕获，进行相应处理。</p></li><li><p>Error 是指在正常情况下，不大可能出现的情况，绝大部分的 Error 都会导致程序（比如 JVM 自身）处于非正常的、不可恢复状态。既然是非正常情况，所以不便于也不需要捕获，常见的比如 OutOfMemoryError 之类，都是 Error 的子类。</p></li><li><p>Exception 又分为<strong>可检查</strong>（checked）异常和<strong>不检查</strong>（unchecked）异常，可检查异常在源代码里必须显式地进行捕获处理，这是编译期检查的一部分。前面我介绍的不可查的 Error，是 Throwable 不是 Exception。</p></li><li><p>不检查异常就是所谓的运行时异常，类似 NullPointerException、ArrayIndexOutOfBoundsException 之类，通常是可以编码避免的逻辑错误，具体根据需要来判断是否需要捕获，并不会在编译期强制要求。</p></li></ul><h3 id="实践中的一些经验："><a href="#实践中的一些经验：" class="headerlink" title="实践中的一些经验："></a>实践中的一些经验：</h3><ol><li>尽量不要捕获类似 Exception 这样的通用异常，而是应该捕获特定异常，这是因为在日常的开发和合作中，我们读代码的机会往往超过写代码，软件工程是门协作的艺术，所以我们有义务让自己的代码能够直观地体现出尽量多的信息，而泛泛的 Exception 之类，恰恰隐藏了我们的目的。另外，我们也要保证程序不会捕获到我们不希望捕获的异常。比如，你可能更希望 RuntimeException 被扩散出来，而不是被捕获。进一步讲，除非深思熟虑了，否则不要捕获 Throwable 或者 Error，这样很难保证我们能够正确程序处理 OutOfMemoryError。</li><li>不要生吞（swallow）异常。这是异常处理中要特别注意的事情，因为很可能会导致非常难以诊断的诡异情况。生吞异常，往往是基于假设这段代码可能不会发生，或者感觉忽略异常是无所谓的，但是千万不要在产品代码做这种假设！</li></ol>]]></content>
     
