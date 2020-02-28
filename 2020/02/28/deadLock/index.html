@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="前言死锁是面试中经常会被问到的一个问题，对于什么是死锁，大家肯定早已经烂熟于心了，但是如果面试官让你现场写一段死锁的代码，估计很多人就有点慌了。毕竟记住了概念是一回事，能自己写出来又是另一回事。前几天在看一个JVM视频的时候，发现一个例子写的很好，理解起来也很简单，给大家分享一下：">
+<meta name="description" content="前言死锁是面试中经常会被问到的一个问题，对于什么是死锁，大家肯定早已经烂熟于心了，但是如果面试官让你现场写一段死锁的代码，估计很多人就有点慌了。毕竟记住了概念是一回事，能自己写出来又是另一回事。前几天在看一个JVM视频的时候，发现一个例子写的很好，理解起来也很简单，给大家分享一下： 这个逻辑很简单，新建了两个类A和B，有两个相同的方法method()，逻辑也很简单，就输出一句话，然后调用另一个类">
 <meta name="keywords" content="JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何用较少的代码实现一个死锁？">
 <meta property="og:url" content="https://zhouyannian.com/2020/02/28/deadLock/index.html">
 <meta property="og:site_name" content="周延年的博客">
-<meta property="og:description" content="前言死锁是面试中经常会被问到的一个问题，对于什么是死锁，大家肯定早已经烂熟于心了，但是如果面试官让你现场写一段死锁的代码，估计很多人就有点慌了。毕竟记住了概念是一回事，能自己写出来又是另一回事。前几天在看一个JVM视频的时候，发现一个例子写的很好，理解起来也很简单，给大家分享一下：">
+<meta property="og:description" content="前言死锁是面试中经常会被问到的一个问题，对于什么是死锁，大家肯定早已经烂熟于心了，但是如果面试官让你现场写一段死锁的代码，估计很多人就有点慌了。毕竟记住了概念是一回事，能自己写出来又是另一回事。前几天在看一个JVM视频的时候，发现一个例子写的很好，理解起来也很简单，给大家分享一下： 这个逻辑很简单，新建了两个类A和B，有两个相同的方法method()，逻辑也很简单，就输出一句话，然后调用另一个类">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zhouyannian.com/images/2020-02-28/start.jpg">
 <meta property="og:image" content="https://zhouyannian.com/images/2020-02-28/code.png">
-<meta property="og:updated_time" content="2020-02-28T14:52:18.977Z">
+<meta property="og:updated_time" content="2020-02-28T15:00:17.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何用较少的代码实现一个死锁？">
-<meta name="twitter:description" content="前言死锁是面试中经常会被问到的一个问题，对于什么是死锁，大家肯定早已经烂熟于心了，但是如果面试官让你现场写一段死锁的代码，估计很多人就有点慌了。毕竟记住了概念是一回事，能自己写出来又是另一回事。前几天在看一个JVM视频的时候，发现一个例子写的很好，理解起来也很简单，给大家分享一下：">
+<meta name="twitter:description" content="前言死锁是面试中经常会被问到的一个问题，对于什么是死锁，大家肯定早已经烂熟于心了，但是如果面试官让你现场写一段死锁的代码，估计很多人就有点慌了。毕竟记住了概念是一回事，能自己写出来又是另一回事。前几天在看一个JVM视频的时候，发现一个例子写的很好，理解起来也很简单，给大家分享一下： 这个逻辑很简单，新建了两个类A和B，有两个相同的方法method()，逻辑也很简单，就输出一句话，然后调用另一个类">
 <meta name="twitter:image" content="https://zhouyannian.com/images/2020-02-28/start.jpg">
 
 
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  128 字
+                  368 字
                 </span>
               
 
@@ -455,6 +455,7 @@
       
         <p><img src="/images/2020-02-28/start.jpg" alt></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>死锁是面试中经常会被问到的一个问题，对于什么是死锁，大家肯定早已经烂熟于心了，但是如果面试官让你现场写一段死锁的代码，估计很多人就有点慌了。<br>毕竟记住了概念是一回事，能自己写出来又是另一回事。<br>前几天在看一个JVM视频的时候，发现一个例子写的很好，理解起来也很简单，给大家分享一下：<br><img src="/images/2020-02-28/code.png" alt></p>
+<p>这个逻辑很简单，新建了两个类A和B，有两个相同的方法method()，逻辑也很简单，就输出一句话，然后调用另一个类的method()方法，为了达到理想的效果，让持有该锁的线程休眠了5秒。<br>main函数里面，启动了两个线程去分别调用类A的method方法和类B的method方法，这里用到了Lambda表达式。当第一个线程进入类A的method方法后，休眠了5秒之后，准备去调用类B的method方法，此时，类B的Class对象的锁被另一个线程锁持有，只能等待。与此同时，第二个线程也执行了相同的操作，想要去获取类A的Class对象的锁，然后发现锁已被第一个线程持有，也进入了等待的状态。<br>这样，两个线程就在互相等待对方释放锁，而进入了永久循环的状态。</p>
 
       
     </div>
@@ -760,7 +761,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5k</span>
+    <span title="Site words total count">5.2k</span>
   
 </div>
 
